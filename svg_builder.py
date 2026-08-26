@@ -2,11 +2,16 @@
 """
 Construit la carte SVG animee (style terminal / neofetch).
 
-Regle d'or de ce fichier : a l'instant t=0, la carte est ENTIEREMENT LISIBLE.
-Certains navigateurs (Chrome 151 par exemple) figent les animations des SVG
-affiches via <img> — ils n'affichent jamais que l'image du temps zero. Si la
-premiere image cache le contenu, la carte apparait blanche. Toute animation
-part donc de l'etat visible et y revient.
+Le chassis de la fenetre (cadre, barre de titre, pastilles, separateur) est
+dessine hors animation : il est toujours la. Seul le contenu — portrait ASCII
+et colonne de droite — est anime, selon config.ANIMATION :
+
+    "intro"   joue une fois a l'arrivee sur la page, puis se fige (defaut)
+    "loop"    lisible d'emblee, s'efface et se retape toutes les N secondes
+    "ambient" lisible d'emblee, seuls le curseur et la scanline bougent
+
+Un visiteur ayant active "reduire les animations" voit toujours la carte
+complete et immobile.
 """
 from xml.sax.saxutils import escape
 
@@ -35,9 +40,9 @@ SERIF = config.FONT_SERIF
 LABEL_W = 13                    # largeur de la colonne label (en caracteres)
 
 # --- Chorégraphie (secondes, relatives au debut de la frappe) -------------
-T_ASCII_START = 0.10
+T_ASCII_START = 0.35
 T_ASCII_STEP = 0.045
-T_INFO_START = 1.00
+T_INFO_START = 1.20
 T_INFO_STEP = 0.20
 T_LINE_DUR = 0.42
 
@@ -271,8 +276,10 @@ class Card:
         reveal = max(s + d for _, _, s, d, _ in self.anims)
 
         if mode == "intro":
-            # Retape une seule fois. ATTENTION : invisible dans les navigateurs
-            # qui figent les images animees. Conserve pour les nostalgiques.
+            # Joue une seule fois puis se fige sur la carte complete.
+            # Le chassis de la fenetre (cadre, barre de titre, separateur) est
+            # dessine hors animation : meme si un navigateur ne joue pas les
+            # animations, on voit le terminal vide plutot que rien.
             for sel, kind, start, dur, easing in self.anims:
                 self.css.append(
                     "%s{animation:kf_%s %.2fs %s %.2fs backwards}"
@@ -345,6 +352,7 @@ class Card:
   @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
   @keyframes crt{0%,100%{opacity:.97}45%{opacity:1}70%{opacity:.94}}
   @keyframes scan{0%{transform:translateY(__TOP__px)}100%{transform:translateY(__BOT__px)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important}}
 """
         for k, v in [("__FONTFACE__", self.d.get("font_face", "")),
                      ("__MONO__", MONO), ("__SERIF__", SERIF),
