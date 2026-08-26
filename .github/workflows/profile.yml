@@ -1,0 +1,57 @@
+name: Générer la carte de profil
+
+on:
+  schedule:
+    # tous les jours à 03:17 UTC (heure creuse = moins de files d'attente)
+    - cron: "17 3 * * *"
+  workflow_dispatch:        # bouton "Run workflow" dans l'onglet Actions
+  push:
+    branches: [main]
+    paths:
+      - "today.py"
+      - "config.py"
+      - "svg_builder.py"
+      - "ascii_portrait.txt"
+      - ".github/workflows/profile.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-card
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # garde le cache des lignes de code d'un run à l'autre
+      - uses: actions/cache@v4
+        with:
+          path: cache
+          key: loc-cache-${{ github.run_id }}
+          restore-keys: loc-cache-
+
+      - name: Générer les SVG
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          USER_NAME: ${{ github.repository_owner }}
+        run: python3 today.py
+
+      - name: Commit si changement
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dark_mode.svg light_mode.svg cache
+          if git diff --staged --quiet; then
+            echo "Rien à mettre à jour."
+          else
+            git commit -m "chore: mise à jour de la carte de profil"
+            git push
+          fi

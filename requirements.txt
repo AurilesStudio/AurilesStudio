@@ -1,0 +1,3 @@
+# today.py n'utilise que la bibliotheque standard : aucune dependance.
+# Pillow n'est necessaire que pour regenerer le portrait ASCII :
+#   pip install pillow
