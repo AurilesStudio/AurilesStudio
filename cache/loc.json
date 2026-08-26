@@ -1,0 +1,72 @@
+{
+ "AurilesStudio/AurilesStudio": {
+  "commits": 2,
+  "add": 1769,
+  "del": 227
+ },
+ "AurilesStudio/auriles-studio": {
+  "commits": 232,
+  "add": 73196,
+  "del": 10702
+ },
+ "AurilesStudio/Aurionman": {
+  "commits": 26,
+  "add": 13135,
+  "del": 1474
+ },
+ "AurilesStudio/Prospectauria": {
+  "commits": 7,
+  "add": 1260,
+  "del": 12
+ },
+ "AurilesStudio/OnePieceDB": {
+  "commits": 15,
+  "add": 11537,
+  "del": 611
+ },
+ "AurilesStudio/AURIA-OS": {
+  "commits": 230,
+  "add": 570144,
+  "del": 22895
+ },
+ "AurilesStudio/Auri-Tracker": {
+  "commits": 23,
+  "add": 24187,
+  "del": 4789
+ },
+ "AurilesStudio/Auriforce": {
+  "commits": 53,
+  "add": 24734,
+  "del": 5437
+ },
+ "AurilesStudio/AURIA-backup": {
+  "commits": 33,
+  "add": 3725,
+  "del": 1162
+ },
+ "AurilesStudio/Auri-Money": {
+  "commits": 2,
+  "add": 1653,
+  "del": 0
+ },
+ "AurilesStudio/e2e-test-ynov-prospection-app": {
+  "commits": 1,
+  "add": 2,
+  "del": 0
+ },
+ "AurilesStudio/Auri-Trading": {
+  "commits": 3,
+  "add": 45,
+  "del": 0
+ },
+ "AurilesStudio/Auri-OS-Web": {
+  "commits": 17,
+  "add": 8623,
+  "del": 1144
+ },
+ "AurilesStudio/Particles": {
+  "commits": 21,
+  "add": 6843,
+  "del": 1620
+ }
+}

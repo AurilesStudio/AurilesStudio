@@ -112,7 +112,7 @@
   @keyframes lpd30{0%,61.500%{transform:scaleX(1)}61.700%,73.286%{transform:scaleX(0)}76.286%,100%{transform:scaleX(1)}}
   #rcd4{animation:lpd30 14.00s steps(34,end) infinite}
   @keyframes lpd31{0%,61.500%{transform:scaleX(1)}61.700%,74.714%{transform:scaleX(0)}77.714%,100%{transform:scaleX(1)}}
-  #rcd5{animation:lpd31 14.00s steps(44,end) infinite}
+  #rcd5{animation:lpd31 14.00s steps(34,end) infinite}
   @keyframes lpd32{0%,61.500%{transform:scaleX(1)}61.700%,76.143%{transform:scaleX(0)}79.143%,100%{transform:scaleX(1)}}
   #rcd6{animation:lpd32 14.00s steps(51,end) infinite}
   @keyframes lpd33{0%,61.500%{transform:scaleX(1)}61.700%,77.571%{transform:scaleX(0)}80.571%,100%{transform:scaleX(1)}}
@@ -124,9 +124,9 @@
   @keyframes lpd36{0%,61.500%{transform:scaleX(1)}61.700%,81.857%{transform:scaleX(0)}84.857%,100%{transform:scaleX(1)}}
   #rcd10{animation:lpd36 14.00s steps(40,end) infinite}
   @keyframes lpd37{0%,61.500%{transform:scaleX(1)}61.700%,83.286%{transform:scaleX(0)}86.286%,100%{transform:scaleX(1)}}
-  #rcd11{animation:lpd37 14.00s steps(36,end) infinite}
+  #rcd11{animation:lpd37 14.00s steps(33,end) infinite}
   @keyframes lpd38{0%,61.500%{transform:scaleX(1)}61.700%,84.714%{transform:scaleX(0)}87.714%,100%{transform:scaleX(1)}}
-  #rcd12{animation:lpd38 14.00s steps(36,end) infinite}
+  #rcd12{animation:lpd38 14.00s steps(34,end) infinite}
   @keyframes lpd39{0%,61.500%{transform:scaleX(1)}61.700%,86.143%{transform:scaleX(0)}89.143%,100%{transform:scaleX(1)}}
   #rcd13{animation:lpd39 14.00s steps(51,end) infinite}
   @keyframes lpd40{0%,61.500%{transform:scaleX(1)}61.700%,87.571%{transform:scaleX(0)}90.571%,100%{transform:scaleX(1)}}
@@ -165,21 +165,21 @@
 <g clip-path="url(#cd2)"><text class="info" x="316" y="68" xml:space="preserve"><tspan class="acc bold">aurilesstudio@github</tspan></text></g>
 <g clip-path="url(#cd3)"><text class="info" x="316" y="86.0" xml:space="preserve"><tspan class="rule">──────────────────────────────────────────────────────────────────────────</tspan></text></g>
 <g clip-path="url(#cd4)"><text class="info" x="316" y="106.0" xml:space="preserve"><tspan class="lbl">OS...........: </tspan><tspan class="val">macOS</tspan><tspan class="dim">  ·  </tspan><tspan class="val">Paris, FR</tspan></text></g>
-<g clip-path="url(#cd5)"><text class="info" x="316" y="126.0" xml:space="preserve"><tspan class="lbl">Uptime.......: </tspan><tspan class="acc">11 ans, 5 mois  (4 196 jours)</tspan></text></g>
+<g clip-path="url(#cd5)"><text class="info" x="316" y="126.0" xml:space="preserve"><tspan class="lbl">Uptime.......: </tspan><tspan class="acc">9 mois  (279 jours)</tspan></text></g>
 <g clip-path="url(#cd6)"><text class="info" x="316" y="146.0" xml:space="preserve"><tspan class="lbl">Focus........: </tspan><tspan class="val">IA / Data  -  Automatisation  -  Web</tspan></text></g>
 <g clip-path="url(#cd7)"><text class="info" x="316" y="166.0" xml:space="preserve"><tspan class="lbl">Editor.......: </tspan><tspan class="val">VS Code + Claude Code</tspan></text></g>
 <g clip-path="url(#cd8)"><text class="info" x="316" y="186.0" xml:space="preserve"><tspan class="lbl">Tools........: </tspan><tspan class="val">n8n, Airtable, Notion, Docker</tspan></text></g>
 <g clip-path="url(#cd9)"><text class="info" x="316" y="207.0" xml:space="preserve"><tspan class="rule">──────────────────────────────────────────────────────────────────────────</tspan></text></g>
-<g clip-path="url(#cd10)"><text class="info" x="316" y="227.0" xml:space="preserve"><tspan class="lbl">Repos........: </tspan><tspan class="acc">28</tspan><tspan class="dim">  {</tspan><tspan class="val">public </tspan><tspan class="acc">21</tspan><tspan class="dim"> | </tspan><tspan class="val">privé </tspan><tspan class="acc">7</tspan><tspan class="dim">}</tspan></text></g>
-<g clip-path="url(#cd11)"><text class="info" x="316" y="247.0" xml:space="preserve"><tspan class="lbl">Commits......: </tspan><tspan class="acc">1 487</tspan><tspan class="dim">   sur </tspan><tspan class="val">12 années</tspan></text></g>
-<g clip-path="url(#cd12)"><text class="info" x="316" y="267.0" xml:space="preserve"><tspan class="lbl">Stars........: </tspan><tspan class="acc">94</tspan><tspan class="dim">      Followers  </tspan><tspan class="acc">23</tspan></text></g>
-<g clip-path="url(#cd13)"><text class="info" x="316" y="287.0" xml:space="preserve"><tspan class="lbl">Code.........: </tspan><tspan class="acc">184 320</tspan><tspan class="dim"> lignes  </tspan><tspan class="plus">++147 905</tspan><tspan class="dim"> / </tspan><tspan class="minus">--36 415</tspan></text></g>
+<g clip-path="url(#cd10)"><text class="info" x="316" y="227.0" xml:space="preserve"><tspan class="lbl">Repos........: </tspan><tspan class="acc">14</tspan><tspan class="dim">  {</tspan><tspan class="val">public </tspan><tspan class="acc">2</tspan><tspan class="dim"> | </tspan><tspan class="val">privé </tspan><tspan class="acc">12</tspan><tspan class="dim">}</tspan></text></g>
+<g clip-path="url(#cd11)"><text class="info" x="316" y="247.0" xml:space="preserve"><tspan class="lbl">Commits......: </tspan><tspan class="acc">874</tspan><tspan class="dim">   sur </tspan><tspan class="val">2 années</tspan></text></g>
+<g clip-path="url(#cd12)"><text class="info" x="316" y="267.0" xml:space="preserve"><tspan class="lbl">Stars........: </tspan><tspan class="acc">0</tspan><tspan class="dim">      Followers  </tspan><tspan class="acc">0</tspan></text></g>
+<g clip-path="url(#cd13)"><text class="info" x="316" y="287.0" xml:space="preserve"><tspan class="lbl">Code.........: </tspan><tspan class="acc">690 780</tspan><tspan class="dim"> lignes  </tspan><tspan class="plus">++740 853</tspan><tspan class="dim"> / </tspan><tspan class="minus">--50 073</tspan></text></g>
 <g clip-path="url(#cd14)"><text class="info" x="316" y="308.0" xml:space="preserve"><tspan class="rule">──────────────────────────────────────────────────────────────────────────</tspan></text></g>
-<g clip-path="url(#lbd15)"><rect class="seg sd16" x="316.00" y="327.0" width="189.72" height="9" fill="#5e8fdc"/><rect class="seg sd17" x="505.72" y="327.0" width="161.82" height="9" fill="#8aaadf"/><rect class="seg sd18" x="667.54" y="327.0" width="100.44" height="9" fill="#e2b45e"/><rect class="seg sd19" x="767.98" y="327.0" width="50.22" height="9" fill="#dd7a6f"/><rect class="seg sd20" x="818.20" y="327.0" width="33.48" height="9" fill="#b8851f"/><rect class="seg sd21" x="851.68" y="327.0" width="22.32" height="9" fill="#46536a"/></g>
-<g class="lgd22"><circle cx="320.0" cy="349.0" r="4" fill="#5e8fdc"/><text class="leg" x="330.0" y="353.0">TypeScript <tspan class="dim">34.0%</tspan></text><circle cx="460.2" cy="349.0" r="4" fill="#8aaadf"/><text class="leg" x="470.2" y="353.0">Python <tspan class="dim">29.0%</tspan></text><circle cx="574.0" cy="349.0" r="4" fill="#e2b45e"/><text class="leg" x="584.0" y="353.0">JavaScript <tspan class="dim">18.0%</tspan></text></g>
-<g class="lgd23"><circle cx="320.0" cy="366.0" r="4" fill="#dd7a6f"/><text class="leg" x="330.0" y="370.0">HTML/CSS <tspan class="dim">9.0%</tspan></text><circle cx="447.0" cy="366.0" r="4" fill="#b8851f"/><text class="leg" x="457.0" y="370.0">SQL <tspan class="dim">6.0%</tspan></text><circle cx="541.0" cy="366.0" r="4" fill="#46536a"/><text class="leg" x="551.0" y="370.0">Autres <tspan class="dim">4.0%</tspan></text></g>
+<g clip-path="url(#lbd15)"><rect class="seg sd16" x="316.00" y="327.0" width="415.01" height="9" fill="#5e8fdc"/><rect class="seg sd17" x="731.01" y="327.0" width="84.90" height="9" fill="#8aaadf"/><rect class="seg sd18" x="815.91" y="327.0" width="26.25" height="9" fill="#b7ccec"/><rect class="seg sd19" x="842.16" y="327.0" width="14.52" height="9" fill="#e2b45e"/><rect class="seg sd20" x="856.68" y="327.0" width="8.38" height="9" fill="#dd7a6f"/><rect class="seg sd21" x="865.06" y="327.0" width="8.94" height="9" fill="#46536a"/></g>
+<g class="lgd22"><circle cx="320.0" cy="349.0" r="4" fill="#5e8fdc"/><text class="leg" x="330.0" y="353.0">TypeScript <tspan class="dim">74.3%</tspan></text><circle cx="460.2" cy="349.0" r="4" fill="#8aaadf"/><text class="leg" x="470.2" y="353.0">JavaScript <tspan class="dim">15.2%</tspan></text><circle cx="600.4" cy="349.0" r="4" fill="#b7ccec"/><text class="leg" x="610.4" y="353.0">HTML <tspan class="dim">4.7%</tspan></text></g>
+<g class="lgd23"><circle cx="320.0" cy="366.0" r="4" fill="#e2b45e"/><text class="leg" x="330.0" y="370.0">CSS <tspan class="dim">2.6%</tspan></text><circle cx="414.0" cy="366.0" r="4" fill="#dd7a6f"/><text class="leg" x="424.0" y="370.0">Python <tspan class="dim">1.5%</tspan></text><circle cx="527.8" cy="366.0" r="4" fill="#46536a"/><text class="leg" x="537.8" y="370.0">Autres <tspan class="dim">1.6%</tspan></text></g>
 <line x1="290" y1="56" x2="290" y2="454" stroke="#fffdfa0f"/>
 <g class="pd24"><text class="info" x="316" y="399.0" xml:space="preserve"><tspan class="acc2">auriles</tspan><tspan class="dim"> $ </tspan><tspan class="val">build . solve . repeat</tspan></text><rect class="caret" x="559.0" y="388.0" width="6.8" height="13.5"/></g>
-<text class="foot fd25" x="316" y="452">dernière mise à jour : 26/08/2026 17:50 UTC  ·  généré automatiquement par GitHub Actions</text>
+<text class="foot fd25" x="316" y="452">dernière mise à jour : 26/08/2026 17:52 UTC  ·  généré automatiquement par GitHub Actions</text>
 </g>
 </svg>
