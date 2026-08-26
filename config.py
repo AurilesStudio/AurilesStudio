@@ -9,15 +9,15 @@ DISPLAY_NAME = "Auriles"             # nom affiche dans le prompt
 TITLE = ""                           # vide = deduit du compte (rename-proof)
 LOCATION = "Paris, FR"
 OS_LABEL = "macOS"
-EDITOR = "VS Code + Claude Code"
+EDITOR = "VS Code / Cursor + Claude Code"
 
 # Date de creation du compte GitHub (fallback si l'API n'est pas joignable)
 FALLBACK_CREATED_AT = "2015-03-01T00:00:00Z"
 
 # --- Lignes libres de la carte --------------------------------------------
 # (label, valeur) — le label est complete par des points comme dans neofetch
-FOCUS = "IA / Data  -  Automatisation  -  Web"
-TOOLS = "n8n, Airtable, Notion, Docker"
+FOCUS = "Dev Web  -  IA / Data  -  Automatisation  -  No-code"
+TOOLS = "Airtable, Notion, Docker, Hermes"
 
 # --- Barre de langages ----------------------------------------------------
 # Utilisee telle quelle si USE_REAL_LANGUAGES = False,
