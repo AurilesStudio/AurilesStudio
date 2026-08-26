@@ -42,6 +42,7 @@
   @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
   @keyframes crt{0%,100%{opacity:.97}45%{opacity:1}70%{opacity:.94}}
   @keyframes scan{0%{transform:translateY(34px)}100%{transform:translateY(476px)}}
+  @media (prefers-reduced-motion:reduce){*{animation:none !important}}
   .sl16{transform-box:fill-box;transform-origin:left center}
   .sl17{transform-box:fill-box;transform-origin:left center}
   .sl18{transform-box:fill-box;transform-origin:left center}
@@ -49,108 +50,59 @@
   .sl20{transform-box:fill-box;transform-origin:left center}
   .sl21{transform-box:fill-box;transform-origin:left center}
   .foot{font-size:10px;fill:#6e7c93;letter-spacing:.3px}
-  @keyframes lpl0{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,64.000%{opacity:0;transform:translateY(3px)}67.571%,100%{opacity:1;transform:translateY(0)}}
-  .a0{animation:lpl0 14.00s ease-out infinite}
-  @keyframes lpl1{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,64.321%{opacity:0;transform:translateY(3px)}67.893%,100%{opacity:1;transform:translateY(0)}}
-  .a1{animation:lpl1 14.00s ease-out infinite}
-  @keyframes lpl2{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,64.643%{opacity:0;transform:translateY(3px)}68.214%,100%{opacity:1;transform:translateY(0)}}
-  .a2{animation:lpl2 14.00s ease-out infinite}
-  @keyframes lpl3{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,64.964%{opacity:0;transform:translateY(3px)}68.536%,100%{opacity:1;transform:translateY(0)}}
-  .a3{animation:lpl3 14.00s ease-out infinite}
-  @keyframes lpl4{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,65.286%{opacity:0;transform:translateY(3px)}68.857%,100%{opacity:1;transform:translateY(0)}}
-  .a4{animation:lpl4 14.00s ease-out infinite}
-  @keyframes lpl5{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,65.607%{opacity:0;transform:translateY(3px)}69.179%,100%{opacity:1;transform:translateY(0)}}
-  .a5{animation:lpl5 14.00s ease-out infinite}
-  @keyframes lpl6{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,65.929%{opacity:0;transform:translateY(3px)}69.500%,100%{opacity:1;transform:translateY(0)}}
-  .a6{animation:lpl6 14.00s ease-out infinite}
-  @keyframes lpl7{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,66.250%{opacity:0;transform:translateY(3px)}69.821%,100%{opacity:1;transform:translateY(0)}}
-  .a7{animation:lpl7 14.00s ease-out infinite}
-  @keyframes lpl8{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,66.571%{opacity:0;transform:translateY(3px)}70.143%,100%{opacity:1;transform:translateY(0)}}
-  .a8{animation:lpl8 14.00s ease-out infinite}
-  @keyframes lpl9{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,66.893%{opacity:0;transform:translateY(3px)}70.464%,100%{opacity:1;transform:translateY(0)}}
-  .a9{animation:lpl9 14.00s ease-out infinite}
-  @keyframes lpl10{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,67.214%{opacity:0;transform:translateY(3px)}70.786%,100%{opacity:1;transform:translateY(0)}}
-  .a10{animation:lpl10 14.00s ease-out infinite}
-  @keyframes lpl11{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,67.536%{opacity:0;transform:translateY(3px)}71.107%,100%{opacity:1;transform:translateY(0)}}
-  .a11{animation:lpl11 14.00s ease-out infinite}
-  @keyframes lpl12{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,67.857%{opacity:0;transform:translateY(3px)}71.429%,100%{opacity:1;transform:translateY(0)}}
-  .a12{animation:lpl12 14.00s ease-out infinite}
-  @keyframes lpl13{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,68.179%{opacity:0;transform:translateY(3px)}71.750%,100%{opacity:1;transform:translateY(0)}}
-  .a13{animation:lpl13 14.00s ease-out infinite}
-  @keyframes lpl14{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,68.500%{opacity:0;transform:translateY(3px)}72.071%,100%{opacity:1;transform:translateY(0)}}
-  .a14{animation:lpl14 14.00s ease-out infinite}
-  @keyframes lpl15{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,68.821%{opacity:0;transform:translateY(3px)}72.393%,100%{opacity:1;transform:translateY(0)}}
-  .a15{animation:lpl15 14.00s ease-out infinite}
-  @keyframes lpl16{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,69.143%{opacity:0;transform:translateY(3px)}72.714%,100%{opacity:1;transform:translateY(0)}}
-  .a16{animation:lpl16 14.00s ease-out infinite}
-  @keyframes lpl17{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,69.464%{opacity:0;transform:translateY(3px)}73.036%,100%{opacity:1;transform:translateY(0)}}
-  .a17{animation:lpl17 14.00s ease-out infinite}
-  @keyframes lpl18{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,69.786%{opacity:0;transform:translateY(3px)}73.357%,100%{opacity:1;transform:translateY(0)}}
-  .a18{animation:lpl18 14.00s ease-out infinite}
-  @keyframes lpl19{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,70.107%{opacity:0;transform:translateY(3px)}73.679%,100%{opacity:1;transform:translateY(0)}}
-  .a19{animation:lpl19 14.00s ease-out infinite}
-  @keyframes lpl20{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,70.429%{opacity:0;transform:translateY(3px)}74.000%,100%{opacity:1;transform:translateY(0)}}
-  .a20{animation:lpl20 14.00s ease-out infinite}
-  @keyframes lpl21{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,70.750%{opacity:0;transform:translateY(3px)}74.321%,100%{opacity:1;transform:translateY(0)}}
-  .a21{animation:lpl21 14.00s ease-out infinite}
-  @keyframes lpl22{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,71.071%{opacity:0;transform:translateY(3px)}74.643%,100%{opacity:1;transform:translateY(0)}}
-  .a22{animation:lpl22 14.00s ease-out infinite}
-  @keyframes lpl23{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,71.393%{opacity:0;transform:translateY(3px)}74.964%,100%{opacity:1;transform:translateY(0)}}
-  .a23{animation:lpl23 14.00s ease-out infinite}
-  @keyframes lpl24{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,71.714%{opacity:0;transform:translateY(3px)}75.286%,100%{opacity:1;transform:translateY(0)}}
-  .a24{animation:lpl24 14.00s ease-out infinite}
-  @keyframes lpl25{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,72.036%{opacity:0;transform:translateY(3px)}75.607%,100%{opacity:1;transform:translateY(0)}}
-  .a25{animation:lpl25 14.00s ease-out infinite}
-  @keyframes lpl26{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,72.357%{opacity:0;transform:translateY(3px)}75.929%,100%{opacity:1;transform:translateY(0)}}
-  .a26{animation:lpl26 14.00s ease-out infinite}
-  @keyframes lpl27{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,72.679%{opacity:0;transform:translateY(3px)}76.250%,100%{opacity:1;transform:translateY(0)}}
-  .a27{animation:lpl27 14.00s ease-out infinite}
-  @keyframes lpl28{0%,61.500%{transform:scaleX(1)}61.700%,70.429%{transform:scaleX(0)}73.429%,100%{transform:scaleX(1)}}
-  #rcl2{animation:lpl28 14.00s steps(20,end) infinite}
-  @keyframes lpl29{0%,61.500%{transform:scaleX(1)}61.700%,71.857%{transform:scaleX(0)}74.857%,100%{transform:scaleX(1)}}
-  #rcl3{animation:lpl29 14.00s steps(74,end) infinite}
-  @keyframes lpl30{0%,61.500%{transform:scaleX(1)}61.700%,73.286%{transform:scaleX(0)}76.286%,100%{transform:scaleX(1)}}
-  #rcl4{animation:lpl30 14.00s steps(34,end) infinite}
-  @keyframes lpl31{0%,61.500%{transform:scaleX(1)}61.700%,74.714%{transform:scaleX(0)}77.714%,100%{transform:scaleX(1)}}
-  #rcl5{animation:lpl31 14.00s steps(34,end) infinite}
-  @keyframes lpl32{0%,61.500%{transform:scaleX(1)}61.700%,76.143%{transform:scaleX(0)}79.143%,100%{transform:scaleX(1)}}
-  #rcl6{animation:lpl32 14.00s steps(51,end) infinite}
-  @keyframes lpl33{0%,61.500%{transform:scaleX(1)}61.700%,77.571%{transform:scaleX(0)}80.571%,100%{transform:scaleX(1)}}
-  #rcl7{animation:lpl33 14.00s steps(36,end) infinite}
-  @keyframes lpl34{0%,61.500%{transform:scaleX(1)}61.700%,79.000%{transform:scaleX(0)}82.000%,100%{transform:scaleX(1)}}
-  #rcl8{animation:lpl34 14.00s steps(44,end) infinite}
-  @keyframes lpl35{0%,61.500%{transform:scaleX(1)}61.700%,80.429%{transform:scaleX(0)}83.429%,100%{transform:scaleX(1)}}
-  #rcl9{animation:lpl35 14.00s steps(74,end) infinite}
-  @keyframes lpl36{0%,61.500%{transform:scaleX(1)}61.700%,81.857%{transform:scaleX(0)}84.857%,100%{transform:scaleX(1)}}
-  #rcl10{animation:lpl36 14.00s steps(40,end) infinite}
-  @keyframes lpl37{0%,61.500%{transform:scaleX(1)}61.700%,83.286%{transform:scaleX(0)}86.286%,100%{transform:scaleX(1)}}
-  #rcl11{animation:lpl37 14.00s steps(33,end) infinite}
-  @keyframes lpl38{0%,61.500%{transform:scaleX(1)}61.700%,84.714%{transform:scaleX(0)}87.714%,100%{transform:scaleX(1)}}
-  #rcl12{animation:lpl38 14.00s steps(34,end) infinite}
-  @keyframes lpl39{0%,61.500%{transform:scaleX(1)}61.700%,86.143%{transform:scaleX(0)}89.143%,100%{transform:scaleX(1)}}
-  #rcl13{animation:lpl39 14.00s steps(51,end) infinite}
-  @keyframes lpl40{0%,61.500%{transform:scaleX(1)}61.700%,87.571%{transform:scaleX(0)}90.571%,100%{transform:scaleX(1)}}
-  #rcl14{animation:lpl40 14.00s steps(74,end) infinite}
-  @keyframes lpl41{0%,61.500%{transform:scaleX(1)}61.700%,89.000%{transform:scaleX(0)}92.929%,100%{transform:scaleX(1)}}
-  .sl16{animation:lpl41 14.00s cubic-bezier(.16,1,.3,1) infinite}
-  @keyframes lpl42{0%,61.500%{transform:scaleX(1)}61.700%,89.643%{transform:scaleX(0)}93.571%,100%{transform:scaleX(1)}}
-  .sl17{animation:lpl42 14.00s cubic-bezier(.16,1,.3,1) infinite}
-  @keyframes lpl43{0%,61.500%{transform:scaleX(1)}61.700%,90.286%{transform:scaleX(0)}94.214%,100%{transform:scaleX(1)}}
-  .sl18{animation:lpl43 14.00s cubic-bezier(.16,1,.3,1) infinite}
-  @keyframes lpl44{0%,61.500%{transform:scaleX(1)}61.700%,90.929%{transform:scaleX(0)}94.857%,100%{transform:scaleX(1)}}
-  .sl19{animation:lpl44 14.00s cubic-bezier(.16,1,.3,1) infinite}
-  @keyframes lpl45{0%,61.500%{transform:scaleX(1)}61.700%,91.571%{transform:scaleX(0)}95.500%,100%{transform:scaleX(1)}}
-  .sl20{animation:lpl45 14.00s cubic-bezier(.16,1,.3,1) infinite}
-  @keyframes lpl46{0%,61.500%{transform:scaleX(1)}61.700%,92.214%{transform:scaleX(0)}96.143%,100%{transform:scaleX(1)}}
-  .sl21{animation:lpl46 14.00s cubic-bezier(.16,1,.3,1) infinite}
-  @keyframes lpl47{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,89.857%{opacity:0;transform:translateY(3px)}92.714%,100%{opacity:1;transform:translateY(0)}}
-  .lgl22{animation:lpl47 14.00s ease-out infinite}
-  @keyframes lpl48{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,90.714%{opacity:0;transform:translateY(3px)}93.571%,100%{opacity:1;transform:translateY(0)}}
-  .lgl23{animation:lpl48 14.00s ease-out infinite}
-  @keyframes lpl49{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,92.143%{opacity:0;transform:translateY(3px)}95.000%,100%{opacity:1;transform:translateY(0)}}
-  .pl24{animation:lpl49 14.00s ease-out infinite}
-  @keyframes lpl50{0%,61.500%{opacity:1;transform:translateY(0)}61.700%,93.929%{opacity:0;transform:translateY(3px)}97.500%,100%{opacity:1;transform:translateY(0)}}
-  .fl25{animation:lpl50 14.00s ease-out infinite}</style>
+  .a0{animation:kf_fade 0.50s ease-out 0.35s backwards}
+  .a1{animation:kf_fade 0.50s ease-out 0.39s backwards}
+  .a2{animation:kf_fade 0.50s ease-out 0.44s backwards}
+  .a3{animation:kf_fade 0.50s ease-out 0.48s backwards}
+  .a4{animation:kf_fade 0.50s ease-out 0.53s backwards}
+  .a5{animation:kf_fade 0.50s ease-out 0.57s backwards}
+  .a6{animation:kf_fade 0.50s ease-out 0.62s backwards}
+  .a7{animation:kf_fade 0.50s ease-out 0.67s backwards}
+  .a8{animation:kf_fade 0.50s ease-out 0.71s backwards}
+  .a9{animation:kf_fade 0.50s ease-out 0.75s backwards}
+  .a10{animation:kf_fade 0.50s ease-out 0.80s backwards}
+  .a11{animation:kf_fade 0.50s ease-out 0.84s backwards}
+  .a12{animation:kf_fade 0.50s ease-out 0.89s backwards}
+  .a13{animation:kf_fade 0.50s ease-out 0.93s backwards}
+  .a14{animation:kf_fade 0.50s ease-out 0.98s backwards}
+  .a15{animation:kf_fade 0.50s ease-out 1.02s backwards}
+  .a16{animation:kf_fade 0.50s ease-out 1.07s backwards}
+  .a17{animation:kf_fade 0.50s ease-out 1.11s backwards}
+  .a18{animation:kf_fade 0.50s ease-out 1.16s backwards}
+  .a19{animation:kf_fade 0.50s ease-out 1.21s backwards}
+  .a20{animation:kf_fade 0.50s ease-out 1.25s backwards}
+  .a21{animation:kf_fade 0.50s ease-out 1.29s backwards}
+  .a22{animation:kf_fade 0.50s ease-out 1.34s backwards}
+  .a23{animation:kf_fade 0.50s ease-out 1.38s backwards}
+  .a24{animation:kf_fade 0.50s ease-out 1.43s backwards}
+  .a25{animation:kf_fade 0.50s ease-out 1.48s backwards}
+  .a26{animation:kf_fade 0.50s ease-out 1.52s backwards}
+  .a27{animation:kf_fade 0.50s ease-out 1.56s backwards}
+  #rcl2{animation:kf_scale 0.42s steps(20,end) 1.20s backwards}
+  #rcl3{animation:kf_scale 0.42s steps(74,end) 1.40s backwards}
+  #rcl4{animation:kf_scale 0.42s steps(34,end) 1.60s backwards}
+  #rcl5{animation:kf_scale 0.42s steps(34,end) 1.80s backwards}
+  #rcl6{animation:kf_scale 0.42s steps(51,end) 2.00s backwards}
+  #rcl7{animation:kf_scale 0.42s steps(36,end) 2.20s backwards}
+  #rcl8{animation:kf_scale 0.42s steps(44,end) 2.40s backwards}
+  #rcl9{animation:kf_scale 0.42s steps(74,end) 2.60s backwards}
+  #rcl10{animation:kf_scale 0.42s steps(40,end) 2.80s backwards}
+  #rcl11{animation:kf_scale 0.42s steps(33,end) 3.00s backwards}
+  #rcl12{animation:kf_scale 0.42s steps(34,end) 3.20s backwards}
+  #rcl13{animation:kf_scale 0.42s steps(51,end) 3.40s backwards}
+  #rcl14{animation:kf_scale 0.42s steps(74,end) 3.60s backwards}
+  .sl16{animation:kf_scale 0.55s cubic-bezier(.16,1,.3,1) 3.80s backwards}
+  .sl17{animation:kf_scale 0.55s cubic-bezier(.16,1,.3,1) 3.89s backwards}
+  .sl18{animation:kf_scale 0.55s cubic-bezier(.16,1,.3,1) 3.98s backwards}
+  .sl19{animation:kf_scale 0.55s cubic-bezier(.16,1,.3,1) 4.07s backwards}
+  .sl20{animation:kf_scale 0.55s cubic-bezier(.16,1,.3,1) 4.16s backwards}
+  .sl21{animation:kf_scale 0.55s cubic-bezier(.16,1,.3,1) 4.25s backwards}
+  .lgl22{animation:kf_fade 0.40s ease-out 3.92s backwards}
+  .lgl23{animation:kf_fade 0.40s ease-out 4.04s backwards}
+  .pl24{animation:kf_fade 0.40s ease-out 4.24s backwards}
+  .fl25{animation:kf_fade 0.50s ease-out 4.49s backwards}
+  @keyframes kf_fade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes kf_scale{from{transform:scaleX(0)}to{transform:scaleX(1)}}</style>
 <g>
   <rect x="0.5" y="0.5" width="899" height="475" rx="6" fill="#ffffff" stroke="#06080d1f"/>
   <rect x="0.5" y="0.5" width="899" height="475" rx="6" fill="url(#gll27)"/>
@@ -171,15 +123,15 @@
 <g clip-path="url(#cl8)"><text class="info" x="316" y="186.0" xml:space="preserve"><tspan class="lbl">Tools........: </tspan><tspan class="val">n8n, Airtable, Notion, Docker</tspan></text></g>
 <g clip-path="url(#cl9)"><text class="info" x="316" y="207.0" xml:space="preserve"><tspan class="rule">──────────────────────────────────────────────────────────────────────────</tspan></text></g>
 <g clip-path="url(#cl10)"><text class="info" x="316" y="227.0" xml:space="preserve"><tspan class="lbl">Repos........: </tspan><tspan class="acc">14</tspan><tspan class="dim">  {</tspan><tspan class="val">public </tspan><tspan class="acc">2</tspan><tspan class="dim"> | </tspan><tspan class="val">privé </tspan><tspan class="acc">12</tspan><tspan class="dim">}</tspan></text></g>
-<g clip-path="url(#cl11)"><text class="info" x="316" y="247.0" xml:space="preserve"><tspan class="lbl">Commits......: </tspan><tspan class="acc">874</tspan><tspan class="dim">   sur </tspan><tspan class="val">2 années</tspan></text></g>
+<g clip-path="url(#cl11)"><text class="info" x="316" y="247.0" xml:space="preserve"><tspan class="lbl">Commits......: </tspan><tspan class="acc">875</tspan><tspan class="dim">   sur </tspan><tspan class="val">2 années</tspan></text></g>
 <g clip-path="url(#cl12)"><text class="info" x="316" y="267.0" xml:space="preserve"><tspan class="lbl">Stars........: </tspan><tspan class="acc">0</tspan><tspan class="dim">      Followers  </tspan><tspan class="acc">0</tspan></text></g>
-<g clip-path="url(#cl13)"><text class="info" x="316" y="287.0" xml:space="preserve"><tspan class="lbl">Code.........: </tspan><tspan class="acc">690 780</tspan><tspan class="dim"> lignes  </tspan><tspan class="plus">++740 853</tspan><tspan class="dim"> / </tspan><tspan class="minus">--50 073</tspan></text></g>
+<g clip-path="url(#cl13)"><text class="info" x="316" y="287.0" xml:space="preserve"><tspan class="lbl">Code.........: </tspan><tspan class="acc">690 788</tspan><tspan class="dim"> lignes  </tspan><tspan class="plus">++740 878</tspan><tspan class="dim"> / </tspan><tspan class="minus">--50 090</tspan></text></g>
 <g clip-path="url(#cl14)"><text class="info" x="316" y="308.0" xml:space="preserve"><tspan class="rule">──────────────────────────────────────────────────────────────────────────</tspan></text></g>
 <g clip-path="url(#lbl15)"><rect class="seg sl16" x="316.00" y="327.0" width="415.01" height="9" fill="#5e8fdc"/><rect class="seg sl17" x="731.01" y="327.0" width="84.90" height="9" fill="#8aaadf"/><rect class="seg sl18" x="815.91" y="327.0" width="26.25" height="9" fill="#b7ccec"/><rect class="seg sl19" x="842.16" y="327.0" width="14.52" height="9" fill="#e2b45e"/><rect class="seg sl20" x="856.68" y="327.0" width="8.38" height="9" fill="#dd7a6f"/><rect class="seg sl21" x="865.06" y="327.0" width="8.94" height="9" fill="#46536a"/></g>
 <g class="lgl22"><circle cx="320.0" cy="349.0" r="4" fill="#5e8fdc"/><text class="leg" x="330.0" y="353.0">TypeScript <tspan class="dim">74.3%</tspan></text><circle cx="460.2" cy="349.0" r="4" fill="#8aaadf"/><text class="leg" x="470.2" y="353.0">JavaScript <tspan class="dim">15.2%</tspan></text><circle cx="600.4" cy="349.0" r="4" fill="#b7ccec"/><text class="leg" x="610.4" y="353.0">HTML <tspan class="dim">4.7%</tspan></text></g>
 <g class="lgl23"><circle cx="320.0" cy="366.0" r="4" fill="#e2b45e"/><text class="leg" x="330.0" y="370.0">CSS <tspan class="dim">2.6%</tspan></text><circle cx="414.0" cy="366.0" r="4" fill="#dd7a6f"/><text class="leg" x="424.0" y="370.0">Python <tspan class="dim">1.5%</tspan></text><circle cx="527.8" cy="366.0" r="4" fill="#46536a"/><text class="leg" x="537.8" y="370.0">Autres <tspan class="dim">1.6%</tspan></text></g>
 <line x1="290" y1="56" x2="290" y2="454" stroke="#06080d0f"/>
 <g class="pl24"><text class="info" x="316" y="399.0" xml:space="preserve"><tspan class="acc2">auriles</tspan><tspan class="dim"> $ </tspan><tspan class="val">build . solve . repeat</tspan></text><rect class="caret" x="559.0" y="388.0" width="6.8" height="13.5"/></g>
-<text class="foot fl25" x="316" y="452">dernière mise à jour : 26/08/2026 17:52 UTC  ·  généré automatiquement par GitHub Actions</text>
+<text class="foot fl25" x="316" y="452">dernière mise à jour : 26/08/2026 18:02 UTC  ·  généré automatiquement par GitHub Actions</text>
 </g>
 </svg>
