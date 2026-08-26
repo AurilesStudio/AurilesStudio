@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Construit la carte SVG animee (style terminal / neofetch) a partir des donnees
-recuperees par today.py. Aucune dependance externe.
+Construit la carte SVG animee (style terminal / neofetch).
+
+Regle d'or de ce fichier : a l'instant t=0, la carte est ENTIEREMENT LISIBLE.
+Certains navigateurs (Chrome 151 par exemple) figent les animations des SVG
+affiches via <img> — ils n'affichent jamais que l'image du temps zero. Si la
+premiere image cache le contenu, la carte apparait blanche. Toute animation
+part donc de l'etat visible et y revient.
 """
 from xml.sax.saxutils import escape
 
@@ -29,13 +34,19 @@ SERIF = config.FONT_SERIF
 
 LABEL_W = 13                    # largeur de la colonne label (en caracteres)
 
-# --- Timings (secondes) ---------------------------------------------------
-T_BOOT = 0.25                   # apparition du cadre
-T_ASCII_START = 0.45
+# --- Chorégraphie (secondes, relatives au debut de la frappe) -------------
+T_ASCII_START = 0.10
 T_ASCII_STEP = 0.045
-T_INFO_START = 1.35
+T_INFO_START = 1.00
 T_INFO_STEP = 0.20
 T_LINE_DUR = 0.42
+
+EASE_OUT = "cubic-bezier(.16,1,.3,1)"
+
+HIDDEN = {"fade": "opacity:0;transform:translateY(3px)",
+          "scale": "transform:scaleX(0)"}
+SHOWN = {"fade": "opacity:1;transform:translateY(0)",
+         "scale": "transform:scaleX(1)"}
 
 
 def _e(s):
@@ -47,7 +58,7 @@ def _span(cls, text):
 
 
 def _label(text):
-    """auriles -> 'OS...........:' aligne comme neofetch."""
+    """'OS' -> 'OS...........:' aligne comme neofetch."""
     return text + "." * max(1, LABEL_W - len(text)) + ":"
 
 
@@ -58,6 +69,7 @@ class Card:
         self.d = data
         self.defs = []
         self.css = []
+        self.anims = []          # (selecteur, kind, start, duree, easing)
         self.body = []
         self._uid = 0
 
@@ -65,9 +77,12 @@ class Card:
         self._uid += 1
         return "%s%s%d" % (p, self.tn[0], self._uid)
 
+    def anim(self, sel, kind, start, dur, easing):
+        self.anims.append((sel, kind, start, dur, easing))
+
     # ---------------------------------------------------------------- lignes
     def typed_line(self, y, spans, delay, chars):
-        """Une ligne de texte revelee de gauche a droite, facon frappe clavier."""
+        """Une ligne revelee de gauche a droite, facon frappe clavier."""
         cid = self.uid("c")
         self.defs.append(
             '<clipPath id="{id}" clipPathUnits="userSpaceOnUse">'
@@ -75,10 +90,8 @@ class Card:
             '</clipPath>'.format(id=cid, x=INFO_X - 2, y=y - INFO_FS, w=INFO_W + 4,
                                  h=INFO_LH)
         )
-        self.css.append(
-            "#r%s{animation:type %.2fs steps(%d,end) %.2fs backwards}"
-            % (cid, T_LINE_DUR, max(6, chars), delay)
-        )
+        self.anim("#r" + cid, "scale", delay, T_LINE_DUR,
+                  "steps(%d,end)" % max(6, chars))
         self.body.append(
             '<g clip-path="url(#%s)"><text class="info" x="%s" y="%s" '
             'xml:space="preserve">%s</text></g>' % (cid, INFO_X, y, "".join(spans))
@@ -122,10 +135,8 @@ class Card:
                 'lengthAdjust="spacingAndGlyphs" xml:space="preserve">%s</text>'
                 % (i, ASCII_X, y, ASCII_CW * len(row), _e(row))
             )
-            self.css.append(
-                ".a%d{animation:fadein .5s ease-out %.2fs backwards}"
-                % (i, T_ASCII_START + i * T_ASCII_STEP)
-            )
+            self.anim(".a%d" % i, "fade", T_ASCII_START + i * T_ASCII_STEP,
+                      0.5, "ease-out")
         self.body.append('<g fill="url(#%s)" class="artgrp">%s</g>'
                          % (gid, "".join(art)))
 
@@ -138,14 +149,13 @@ class Card:
         t += T_INFO_STEP
         self.rule(y, t)
 
-        rows_kv = [
+        for lab, val in [
             ("OS", [V(config.OS_LABEL), DIM("  ·  "), V(config.LOCATION)]),
             ("Uptime", [A(d["uptime"])]),
             ("Focus", [V(config.FOCUS)]),
             ("Editor", [V(config.EDITOR)]),
             ("Tools", [V(config.TOOLS)]),
-        ]
-        for lab, val in rows_kv:
+        ]:
             y += INFO_LH
             t += T_INFO_STEP
             self.kv(y, lab, val, t)
@@ -154,7 +164,7 @@ class Card:
         t += T_INFO_STEP
         self.rule(y, t)
 
-        stats = [
+        for lab, val in [
             ("Repos", [A(d["repos"]), DIM("  {"), V("public "), A(d["public"]),
                        DIM(" | "), V("privé "), A(d["private"]), DIM("}")]),
             ("Commits", [A(d["commits"]), DIM("   sur "), V(d["years_label"])]),
@@ -162,8 +172,7 @@ class Card:
             ("Code", [A(d["loc_total"]), DIM(" lignes  "),
                       ("plus", "++" + str(d["loc_add"])), DIM(" / "),
                       ("minus", "--" + str(d["loc_del"]))]),
-        ]
-        for lab, val in stats:
+        ]:
             y += INFO_LH
             t += T_INFO_STEP
             self.kv(y, lab, val, t)
@@ -182,16 +191,13 @@ class Card:
         y += 26
         for k in range(0, len(langs), 3):
             t += 0.12
-            chunk = langs[k:k + 3]
-            self.legend_row(y, chunk, t)
+            self.legend_row(y, langs[k:k + 3], t)
             y += 17
 
-        # ---- separateur vertical entre les deux colonnes
+        # ---- separateur vertical (toujours visible : c'est le chassis)
         self.body.append(
-            '<line class="divider" x1="%s" y1="%s" x2="%s" y2="%s" stroke="%s"/>'
+            '<line x1="%s" y1="%s" x2="%s" y2="%s" stroke="%s"/>'
             % (INFO_X - 26, BAR_H + 22, INFO_X - 26, CARD_H - 22, c["divider"]))
-        self.css.append(".divider{animation:fadein .6s ease-out %.2fs backwards}"
-                        % (T_INFO_START - 0.2))
 
         # ---- prompt clignotant
         y += 12
@@ -206,7 +212,7 @@ class Card:
                INFO_X + (len(config.DISPLAY_NAME) + 3 + len(d["tagline"]) + 0.4) * INFO_CW,
                y - INFO_FS + 1.5, INFO_CW * 0.9, INFO_FS + 1)
         )
-        self.css.append(".%s{animation:fadein .4s ease-out %.2fs backwards}" % (pid, t))
+        self.anim("." + pid, "fade", t, 0.4, "ease-out")
 
         # ---- pied de carte
         fid = self.uid("f")
@@ -215,8 +221,7 @@ class Card:
             % (fid, INFO_X, CARD_H - 24, _e(d["footer"])))
         self.css.append(".foot{font-size:10px;fill:%s;letter-spacing:.3px}"
                         % c["faint"])
-        self.css.append(".%s{animation:fadein .5s ease-out %.2fs backwards}"
-                        % (fid, t + 0.25))
+        self.anim("." + fid, "fade", t + 0.25, 0.5, "ease-out")
 
         return self.render()
 
@@ -226,18 +231,17 @@ class Card:
         total = sum(p for _, p, _ in langs) or 100.0
         clip = self.uid("lb")
         self.defs.append(
-            '<clipPath id="%s"><rect x="%s" y="%s" width="%s" height="9" rx="4.5"/>'
-            '</clipPath>' % (clip, INFO_X, y, INFO_W)
-        )
+            '<clipPath id="%s"><rect x="%s" y="%s" width="%s" height="9" rx="%s"/>'
+            '</clipPath>' % (clip, INFO_X, y, INFO_W, self.c["radius"]))
         segs = []
         for i, (name, pct, col) in enumerate(langs):
             w = INFO_W * pct / total
             sid = self.uid("s")
             segs.append('<rect class="seg %s" x="%.2f" y="%s" width="%.2f" '
                         'height="9" fill="%s"/>' % (sid, x, y, max(w, 1.0), col))
-            self.css.append(".%s{transform-box:fill-box;transform-origin:left center;"
-                            "animation:grow .55s cubic-bezier(.2,.9,.3,1) %.2fs backwards}"
-                            % (sid, delay + i * 0.09))
+            self.css.append(".%s{transform-box:fill-box;transform-origin:left center}"
+                            % sid)
+            self.anim("." + sid, "scale", delay + i * 0.09, 0.55, EASE_OUT)
             x += w
         self.body.append('<g clip-path="url(#%s)">%s</g>' % (clip, "".join(segs)))
 
@@ -252,12 +256,56 @@ class Card:
             x += 14 + (len(name) + 7) * 6.6 + 14
         gid = self.uid("lg")
         self.body.append('<g class="%s">%s</g>' % (gid, "".join(parts)))
-        self.css.append(".%s{animation:fadein .4s ease-out %.2fs backwards}"
-                        % (gid, delay))
+        self.anim("." + gid, "fade", delay, 0.4, "ease-out")
+
+    # ------------------------------------------------------- animations CSS
+    def emit_anims(self):
+        """
+        Transforme la liste d'animations en CSS dont l'image du temps zero est
+        toujours l'etat final visible.
+        """
+        mode = getattr(config, "ANIMATION", "loop")
+        if mode == "ambient" or not self.anims:
+            return
+
+        reveal = max(s + d for _, _, s, d, _ in self.anims)
+
+        if mode == "intro":
+            # Retape une seule fois. ATTENTION : invisible dans les navigateurs
+            # qui figent les images animees. Conserve pour les nostalgiques.
+            for sel, kind, start, dur, easing in self.anims:
+                self.css.append(
+                    "%s{animation:kf_%s %.2fs %s %.2fs backwards}"
+                    % (sel, kind, dur, easing, start))
+            self.css.append("@keyframes kf_fade{from{%s}to{%s}}"
+                            % (HIDDEN["fade"], SHOWN["fade"]))
+            self.css.append("@keyframes kf_scale{from{%s}to{%s}}"
+                            % (HIDDEN["scale"], SHOWN["scale"]))
+            return
+
+        # mode "loop" : lisible, puis effacement et retape, en boucle.
+        period = max(float(getattr(config, "LOOP_PERIOD", 14.0)), reveal + 4.0)
+        clear_at = period - reveal - 0.6      # instant de l'effacement
+        gap = 0.25                            # ecran vide avant la retape
+        snap = period * 0.002                 # effacement quasi instantane
+
+        for i, (sel, kind, start, dur, easing) in enumerate(self.anims):
+            name = "lp%s%d" % (self.tn[0], i)
+            a = (clear_at + gap + start) / period * 100.0
+            b = (clear_at + gap + start + dur) / period * 100.0
+            k0 = clear_at / period * 100.0
+            k1 = min(k0 + snap / period * 100.0, a)
+            self.css.append(
+                "@keyframes %s{0%%,%.3f%%{%s}%.3f%%,%.3f%%{%s}%.3f%%,100%%{%s}}"
+                % (name, k0, SHOWN[kind], k1, a, HIDDEN[kind], b, SHOWN[kind]))
+            self.css.append("%s{animation:%s %.2fs %s infinite}"
+                            % (sel, name, period, easing))
 
     # ---------------------------------------------------------------- render
     def render(self):
         c = self.c
+        self.emit_anims()
+
         scan = self.uid("sc")
         self.defs.append(
             '<linearGradient id="%s" x1="0" y1="0" x2="0" y2="1">'
@@ -271,52 +319,52 @@ class Card:
             '<radialGradient id="%s" cx="0.2" cy="0.15" r="0.9">'
             '<stop offset="0" stop-color="%s" stop-opacity="%.2f"/>'
             '<stop offset="1" stop-color="%s" stop-opacity="0"/></radialGradient>'
-            % (glow, c["accent"], 0.10 if self.tn == "dark" else 0.05, c["accent"])
+            % (glow, c["accent"], c["glow"], c["accent"])
         )
+        bodyclip = self._bodyclip()
 
-        css = """%(fontface)s
-  text{font-family:%(mono)s;dominant-baseline:auto}
-  .art{font-size:%(afs).1fpx;letter-spacing:0}
-  .info{font-size:%(ifs).1fpx;fill:%(text)s}
-  .lbl{fill:%(dim)s}
-  .dim{fill:%(faint)s}
-  .val{fill:%(value)s}
-  .acc{fill:%(acc)s}
-  .acc2{fill:%(acc2)s}
+        base = """__FONTFACE__
+  text{font-family:__MONO__;dominant-baseline:auto}
+  .art{font-size:__AFS__px;letter-spacing:0}
+  .info{font-size:__IFS__px;fill:__TEXT__}
+  .lbl{fill:__DIM__}
+  .dim{fill:__FAINT__}
+  .val{fill:__VALUE__}
+  .acc{fill:__ACC__}
+  .acc2{fill:__ACC2__}
   .bold{font-weight:600;letter-spacing:.2px}
-  .rule{fill:%(rule)s}
-  .plus{fill:%(plus)s}
-  .minus{fill:%(minus)s}
-  .leg{font-size:10.5px;fill:%(value)s}
-  .title{font-family:%(serif)s;font-size:13px;fill:%(dim)s;letter-spacing:.2px}
-  .caret{fill:%(acc)s;animation:blink 1.05s steps(1) infinite}
+  .rule{fill:__RULE__}
+  .plus{fill:__OK__}
+  .minus{fill:__DANGER__}
+  .leg{font-size:10.5px;fill:__VALUE__}
+  .title{font-family:__SERIF__;font-size:13px;fill:__DIM__;letter-spacing:.2px}
+  .rev{transform-box:fill-box;transform-origin:left center}
+  .caret{fill:__ACC__;animation:blink 1.05s steps(1) infinite}
   .artgrp{animation:crt 4.2s ease-in-out infinite}
   .scan{animation:scan 7s linear infinite}
-  .frame{animation:boot .5s ease-out backwards}
-  .chrome{animation:fadein .45s ease-out %(tb).2fs backwards}
-  @keyframes type{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-  @keyframes fadein{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes blink{0%%,49%%{opacity:1}50%%,100%%{opacity:0}}
-  @keyframes crt{0%%,100%%{opacity:.97}45%%{opacity:1}70%%{opacity:.94}}
-  @keyframes scan{0%%{transform:translateY(%(top)dpx)}100%%{transform:translateY(%(bot)dpx)}}
-  @keyframes boot{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:scale(1)}}
-  .rev{transform-box:fill-box;transform-origin:left center}
-  @media (prefers-reduced-motion:reduce){*{animation:none !important}}
-""" % dict(mono=MONO, serif=SERIF, afs=ASCII_FS, ifs=INFO_FS,
-           fontface=self.d.get("font_face", ""),
-           text=c["text"], dim=c["dim"], faint=c["faint"], value=c["value"],
-           acc=c["accent"], acc2=c["accent2"], rule=c["rule"],
-           plus=c["ok"], minus=c["danger"],
-           tb=T_BOOT, top=BAR_H, bot=CARD_H)
-
-        bodyclip = self._bodyclip()
-        css += "\n  ".join(self.css)
+  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+  @keyframes crt{0%,100%{opacity:.97}45%{opacity:1}70%{opacity:.94}}
+  @keyframes scan{0%{transform:translateY(__TOP__px)}100%{transform:translateY(__BOT__px)}}
+"""
+        for k, v in [("__FONTFACE__", self.d.get("font_face", "")),
+                     ("__MONO__", MONO), ("__SERIF__", SERIF),
+                     ("__AFS__", "%.1f" % ASCII_FS), ("__IFS__", "%.1f" % INFO_FS),
+                     ("__TEXT__", c["text"]), ("__DIM__", c["dim"]),
+                     ("__FAINT__", c["faint"]), ("__VALUE__", c["value"]),
+                     ("__ACC__", c["accent"]), ("__ACC2__", c["accent2"]),
+                     ("__RULE__", c["rule"]), ("__OK__", c["ok"]),
+                     ("__DANGER__", c["danger"]),
+                     ("__TOP__", str(BAR_H)), ("__BOT__", str(CARD_H))]:
+            base = base.replace(k, v)
+        css = base + "  " + "\n  ".join(self.css)
 
         dots = "".join(
             '<circle cx="%d" cy="17" r="4.5" fill="%s"/>' % (24 + i * 17, col)
             for i, col in enumerate([c["dot1"], c["dot2"], c["dot3"]])
         )
+        r = c["radius"]
+        chrome_path = ('M0.5 %s a%s %s 0 0 1 %s -%s h%s a%s %s 0 0 1 %s %s V%s H0.5 Z'
+                       % (r + 0.5, r, r, r, r, CARD_W - 1 - 2 * r, r, r, r, r, BAR_H))
 
         return """<svg xmlns="http://www.w3.org/2000/svg" width="%(W)d" height="%(H)d" \
 viewBox="0 0 %(W)d %(H)d" role="img" aria-label="%(alt)s">
@@ -325,25 +373,23 @@ viewBox="0 0 %(W)d %(H)d" role="img" aria-label="%(alt)s">
 %(defs)s
 </defs>
 <style>%(css)s</style>
-<g class="frame">
+<g>
   <rect x="0.5" y="0.5" width="%(W1)s" height="%(H1)s" rx="%(r)s" fill="%(bg)s" stroke="%(border)s"/>
   <rect x="0.5" y="0.5" width="%(W1)s" height="%(H1)s" rx="%(r)s" fill="url(#%(glow)s)"/>
-  <g class="chrome">
-    <path d="M0.5 %(r15)s a%(r)s %(r)s 0 0 1 %(r)s -%(r)s h%(inner)s a%(r)s %(r)s 0 0 1 %(r)s %(r)s V%(bar)s H0.5 Z" fill="%(chrome)s"/>
-    <line x1="0.5" y1="%(bar)s" x2="%(W1)s" y2="%(bar)s" stroke="%(border)s"/>
-    %(dots)s
-    <text class="title" x="%(cx)s" y="21" text-anchor="middle">%(title)s</text>
-  </g>
+  <path d="%(chrome_path)s" fill="%(chrome)s"/>
+  <line x1="0.5" y1="%(bar)s" x2="%(W1)s" y2="%(bar)s" stroke="%(border)s"/>
+  %(dots)s
+  <text class="title" x="%(cx)s" y="21" text-anchor="middle">%(title)s</text>
   <g clip-path="url(#%(bodyclip)s)">
     <rect class="scan" x="0" y="-52" width="%(W)d" height="52" fill="url(#%(scan)s)" opacity="0.07"/>
   </g>
 %(body)s
 </g>
 </svg>
-""" % dict(W=CARD_W, H=CARD_H, W1=CARD_W - 1, H1=CARD_H - 1, inner=CARD_W - 1 - 2 * c["radius"],
-           bar=BAR_H, bg=c["bg"], border=c["border"], chrome=c["chrome"],
-           r=c["radius"], r15=c["radius"] + 0.5,
-           dots=dots, cx=CARD_W / 2, title=_e(config.TITLE + "  —  ~/profile"),
+""" % dict(W=CARD_W, H=CARD_H, W1=CARD_W - 1, H1=CARD_H - 1, bar=BAR_H,
+           bg=c["bg"], border=c["border"], chrome=c["chrome"], r=r,
+           chrome_path=chrome_path, dots=dots, cx=CARD_W / 2,
+           title=_e(config.TITLE + "  —  ~/profile"),
            defs="\n".join(self.defs), css=css, body="\n".join(self.body),
            scan=scan, glow=glow, bodyclip=bodyclip,
            alt=_e("Carte de profil GitHub de " + config.DISPLAY_NAME))

@@ -50,6 +50,17 @@ LANGUAGE_COLORS = {
 }
 PALETTE_FALLBACK = ["#5e8fdc", "#8aaadf", "#b7ccec", "#e2b45e", "#dd7a6f", "#46536a"]
 
+# --- Animation ------------------------------------------------------------
+# "loop"    : la carte est lisible immediatement, puis s'efface et se retape
+#             toutes les LOOP_PERIOD secondes. Seul mode qui reste lisible
+#             dans les navigateurs qui figent les images animees (Chrome 151
+#             le fait : il n'affiche que l'image du temps zero).
+# "ambient" : lisible immediatement, seuls le curseur et la scanline bougent.
+# "intro"   : retape une fois au chargement. Plus joli la ou ca marche, mais
+#             carte BLANCHE la ou les animations sont figees.
+ANIMATION = "loop"
+LOOP_PERIOD = 14.0          # secondes entre deux retapes
+
 # --- Typographie ----------------------------------------------------------
 # Memes declarations que le site (--font-mono / --font-serif).
 # JetBrains Mono ne peut pas etre garantie chez tous les visiteurs de GitHub :
