@@ -117,7 +117,7 @@
 <g clip-path="url(#cd2)"><text class="info" x="316" y="68" xml:space="preserve"><tspan class="acc bold">aurilesstudio@github</tspan></text></g>
 <g clip-path="url(#cd3)"><text class="info" x="316" y="86.0" xml:space="preserve"><tspan class="rule">──────────────────────────────────────────────────────────────────────────</tspan></text></g>
 <g clip-path="url(#cd4)"><text class="info" x="316" y="106.0" xml:space="preserve"><tspan class="lbl">OS...........: </tspan><tspan class="val">macOS</tspan><tspan class="dim">  ·  </tspan><tspan class="val">Paris, FR</tspan></text></g>
-<g clip-path="url(#cd5)"><text class="info" x="316" y="126.0" xml:space="preserve"><tspan class="lbl">Uptime.......: </tspan><tspan class="acc">9 mois  (282 jours)</tspan></text></g>
+<g clip-path="url(#cd5)"><text class="info" x="316" y="126.0" xml:space="preserve"><tspan class="lbl">Uptime.......: </tspan><tspan class="acc">9 mois  (283 jours)</tspan></text></g>
 <g clip-path="url(#cd6)"><text class="info" x="316" y="146.0" xml:space="preserve"><tspan class="lbl">Focus........: </tspan><tspan class="val">Dev Web  -  IA / Data  -  Automatisation  -  No-code</tspan></text></g>
 <g clip-path="url(#cd7)"><text class="info" x="316" y="166.0" xml:space="preserve"><tspan class="lbl">Editor.......: </tspan><tspan class="val">VS Code / Cursor + Claude Code</tspan></text></g>
 <g clip-path="url(#cd8)"><text class="info" x="316" y="186.0" xml:space="preserve"><tspan class="lbl">Tools........: </tspan><tspan class="val">Airtable, Notion, Docker, Hermes</tspan></text></g>
@@ -132,6 +132,6 @@
 <g class="lgd23"><circle cx="320.0" cy="366.0" r="4" fill="#e2b45e"/><text class="leg" x="330.0" y="370.0">CSS <tspan class="dim">2.5%</tspan></text><circle cx="414.0" cy="366.0" r="4" fill="#dd7a6f"/><text class="leg" x="424.0" y="370.0">Python <tspan class="dim">1.5%</tspan></text><circle cx="527.8" cy="366.0" r="4" fill="#46536a"/><text class="leg" x="537.8" y="370.0">Autres <tspan class="dim">1.6%</tspan></text></g>
 <line x1="290" y1="56" x2="290" y2="454" stroke="#fffdfa0f"/>
 <g class="pd24"><text class="info" x="316" y="399.0" xml:space="preserve"><tspan class="acc2">auriles</tspan><tspan class="dim"> $ </tspan><tspan class="val">build . solve . repeat</tspan></text><rect class="caret" x="559.0" y="388.0" width="6.8" height="13.5"/></g>
-<text class="foot fd25" x="316" y="452">dernière mise à jour : 30/08/2026 09:10 UTC  ·  généré automatiquement par GitHub Actions</text>
+<text class="foot fd25" x="316" y="452">dernière mise à jour : 31/08/2026 09:39 UTC  ·  généré automatiquement par GitHub Actions</text>
 </g>
 </svg>
