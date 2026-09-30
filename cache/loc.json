@@ -5,9 +5,9 @@
   "del": 264
  },
  "AurilesStudio/auriles-studio": {
-  "commits": 493,
-  "add": 143173,
-  "del": 45559
+  "commits": 499,
+  "add": 147366,
+  "del": 47904
  },
  "AurilesStudio/Aurionman": {
   "commits": 26,
@@ -68,5 +68,10 @@
   "commits": 21,
   "add": 6843,
   "del": 1620
+ },
+ "AurilesStudio/Laia": {
+  "commits": 26,
+  "add": 33339,
+  "del": 280
  }
 }
