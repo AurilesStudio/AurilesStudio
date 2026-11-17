@@ -5,9 +5,9 @@
   "del": 264
  },
  "AurilesStudio/auriles-studio": {
-  "commits": 600,
-  "add": 178354,
-  "del": 52872
+  "commits": 602,
+  "add": 178778,
+  "del": 52931
  },
  "AurilesStudio/Aurionman": {
   "commits": 26,
@@ -80,13 +80,13 @@
   "del": 90196
  },
  "AurilesStudio/Auria": {
-  "commits": 18,
-  "add": 14374,
-  "del": 9691
+  "commits": 20,
+  "add": 14566,
+  "del": 9883
  },
  "AurilesStudio/MakeaWish": {
-  "commits": 5,
-  "add": 11324,
-  "del": 26
+  "commits": 14,
+  "add": 13561,
+  "del": 903
  }
 }
