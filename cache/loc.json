@@ -80,13 +80,18 @@
   "del": 90196
  },
  "AurilesStudio/Auria": {
-  "commits": 22,
-  "add": 23684,
-  "del": 18463
+  "commits": 28,
+  "add": 24071,
+  "del": 18813
  },
  "AurilesStudio/MakeaWish": {
-  "commits": 29,
-  "add": 14357,
-  "del": 997
+  "commits": 31,
+  "add": 15155,
+  "del": 1058
+ },
+ "AurilesStudio/cv-auriles": {
+  "commits": 19,
+  "add": 8944,
+  "del": 1819
  }
 }
