@@ -132,6 +132,6 @@
 <g class="lgd23"><circle cx="320.0" cy="366.0" r="4" fill="#e2b45e"/><text class="leg" x="330.0" y="370.0">HTML <tspan class="dim">2.4%</tspan></text><circle cx="420.6" cy="366.0" r="4" fill="#dd7a6f"/><text class="leg" x="430.6" y="370.0">Python <tspan class="dim">2.2%</tspan></text><circle cx="534.4" cy="366.0" r="4" fill="#46536a"/><text class="leg" x="544.4" y="370.0">Autres <tspan class="dim">3.3%</tspan></text></g>
 <line x1="290" y1="56" x2="290" y2="454" stroke="#fffdfa0f"/>
 <g class="pd24"><text class="info" x="316" y="399.0" xml:space="preserve"><tspan class="acc2">auriles</tspan><tspan class="dim"> $ </tspan><tspan class="val">build . solve . repeat</tspan></text><rect class="caret" x="559.0" y="388.0" width="6.8" height="13.5"/></g>
-<text class="foot fd25" x="316" y="452">dernière mise à jour : 27/11/2026 12:07 UTC  ·  généré automatiquement par GitHub Actions</text>
+<text class="foot fd25" x="316" y="452">dernière mise à jour : 28/11/2026 11:38 UTC  ·  généré automatiquement par GitHub Actions</text>
 </g>
 </svg>
